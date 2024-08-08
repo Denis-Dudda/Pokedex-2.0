@@ -7,24 +7,6 @@ let aboutContainer = document.getElementById("about-container");
 let baseStatsContainer = document.getElementById("base-stats-container");
 let movesContainer = document.getElementById("moves-container");
 let ShowButton = document.getElementById('all-pokemon-button');
-let normal = "normal";
-let fire = "fire";
-let water = "water";
-let electric = "electric";
-let grass = "grass";
-let ice = "ice";
-let fighting = "fighting";
-let poison = "poison";
-let ground = "ground";
-let flying = "flying";
-let psychic = "psychic";
-let bug = "bug";
-let rock = "rock";
-let ghost = "ghost";
-let dragon = "dragon";
-let dark = "dark";
-let steel = "steel";
-let fairy = "fairy";
 async function init() {
   
   await loadFirstData();
@@ -51,7 +33,6 @@ async function pushToAllPokemonNames() {
     
     allPokemon.push(pokemonJson);
   }
-  
 }
 
 function renderCards() {
@@ -61,8 +42,7 @@ function renderCards() {
       renderOneTypeCards(i);
     } else {
       renderTwoTypesCards(i);
-    }
-  }
+    }}
   showCounter();
   loadingSpinner();
 }
@@ -85,8 +65,7 @@ function renderTwoTypesCards(i) {
       <div class="type-form ${allPokemon[i].types[0].type.name} type-card">${allPokemon[i].types[0].type.name}</div>
       <div class="type-form ${allPokemon[i].types[1].type.name} type-card">${allPokemon[i].types[1].type.name}</div>
     </div>
-  </div>
-`;
+  </div>`;
 }
 
 function renderBigCard(i) {
@@ -161,7 +140,6 @@ function searchPokemon() {
       filterNames.push(allPokemonPlaceholder[i]);
     }}
   changePost(request);
-
 }
 
 function changePost(request) {
@@ -172,7 +150,7 @@ function changePost(request) {
     ShowButton.classList.add('d-none');
     document.getElementById('go-back-button').classList.remove('d-none');
     document.getElementById('search-comment').classList.add('d-none');
-  }
+  }else{alert('Please enter a name or type')}
 }
 
 function goBack() {
