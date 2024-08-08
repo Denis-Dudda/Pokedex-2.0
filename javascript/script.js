@@ -12,6 +12,7 @@ async function init() {
   await loadFirstData();
   ShowButton.classList.remove('d-none');
   renderCards();
+  allPokemonPlaceholder = allPokemon;
 }
 
 async function loadFirstData() {
@@ -134,9 +135,9 @@ function searchPokemon() {
   filterNames = [];
   let request = document.getElementById("input-field").value;
   document.getElementById("input-field").value = "";
-  for (let i = 0; i < allPokemon.length; i++) {
-    if (allPokemon[i].name.startsWith(request)) {
-      filterNames.push(allPokemon[i]);
+  for (let i = 0; i < allPokemonPlaceholder.length; i++) {
+    if (allPokemonPlaceholder[i].name.startsWith(request)) {
+      filterNames.push(allPokemonPlaceholder[i]);
     }
   }
   changePost(request);
@@ -144,25 +145,14 @@ function searchPokemon() {
 }
 
 function changePost(request) {
-  allPokemonPlaceholder = allPokemon;
+  
   allPokemon = filterNames;
   if (!request == "") {
-    document.getElementById('search-button').classList.add('d-none');
-    document.getElementById('go-back-button').classList.remove('d-none');
     renderCards();
     ShowButton.classList.add('d-none');
-    document.getElementById('search-comment').classList.add('d-none');
   }
-}
-
-function goBack(){
-  document.getElementById('input-field').value = '';
-  document.getElementById('search-button').classList.remove('d-none');
-  document.getElementById('go-back-button').classList.add('d-none');
-  allPokemon = allPokemonPlaceholder;
-  ShowButton.classList.remove('d-none');
-  document.getElementById('search-comment').classList.remove('d-none');
-  renderCards();
+  console.log(allPokemon);
+  console.log(allPokemonPlaceholder);
 }
 
 function previousPokemon(i) {
