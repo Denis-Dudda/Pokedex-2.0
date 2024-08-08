@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="icon" type="image/x-icon" href="./img/pokeball-3d-.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap"
+      rel="stylesheet"/>
+    <link rel="stylesheet" href="./style/sytle.css" />
+    <script src="./javascript/script.js" defer></script>
+  </head>
+  <body onload="init()">
+    <header>
+      <div class="head-container">
+      <div class="title">
+        <img class="title-img" src="./img/pokeball-3d-strait.png" alt="" />
+        <h1>Pokedex</h1>
+      </div>
+      <div class="search-container">
+        <div class="counter-container">
+          <div id="search-comment">Search the first</div>
+          <div class="count-number-container">
+            <div class="pokemon-count-number" id="pokemon-count"></div>
+            <div>Pokemon</div>
+          </div>
+        </div>
+        <div class="header-button-container">
+          <input
+            class="header-input"
+            id="input-field"
+            type="search"
+            placeholder="   Pokemon search"
+          />
+          <button id="search-button" onclick="searchPokemon()">Search</button>
+          <button class="d-none" id="go-back-button" onclick="goBack()">Go Back</button>
+        </div>
+      </div>
+    </div>
+    </header>
+    <div id="loading-spinner" class="spinner-container">
+      <img class="spinner-img" src="./img/pokeball-2d.png" alt="" />
+    </div>
+    <section class="main-contant">
+      <div
+        id="big-card-frame"
+        onclick="hideBigCard()"
+        class="big-card-frame d-none"
+      >
+      <img onclick="hideBigCard()" class="big-card-back-img" src="./img/pokemon-no-go.png" alt="">
+        <div
+          id="big-card"
+          class="big-card-container"
+          onclick="event.stopPropagation()"
+        > 
+          <div class="big-card-head">
+            <div class="big-card-head-font" id="big-card-pokemon-name"></div>
+            <div id="big-card-pokemon-img"></div>
+            <div class="big-card-head-font" id="big-card-pokemon-types"></div>
+          </div>
+          <div class="big-card-body">
+            <div class="big-card-tab">
+              <a onclick="showAboutContainer()" href="#">About</a>
+              <a onclick="showBaseStatsContainer()" href="#">Base Stats</a>
+              <a onclick="showMovesContainer()" href="#">Moves</a>
+            </div>
+            <div id="about-container" class="stats-container">
+              <div class="big-card-column-left">
+                <p>Species :</p>
+                <p>Height :</p>
+                <p>Weight :</p>
+                <p>Abilities :</p>
+              </div>
+              <div id="about-stats" class="big-card-column-right"></div>
+            </div>
+            <div id="base-stats-container" class="stats-container d-none">
+              <div class="big-card-column-left">
+                <p>HP :</p>
+                <p>Attack :</p>
+                <p>Defense :</p>
+              </div>
+              <div id="base-stats" class="big-card-column-right"></div>
+            </div>
+            <div id="moves-container" class="stats-container d-none">
+              <div class="big-card-column-left">
+                <p>Moves :</p>
+              </div>
+              <div id="moves" class="big-card-column-right"></div>
+            </div>
+            <div id="big-card-arrow" class="arrow-container"></div>
+          </div>
+        </div>
+      </div>
+      <div class="cards-container" id="cards"></div>
+      <div id="all-pokemon-button" class="show-more-button-container d-none">
+        <button class="show-more-button" onclick="showMorePokemon()">
+          Show More 40 Pokemon
+        </button>
+      </div>
+    </section>
+
+    <footer><h4>Created by Denis Dudda</h4></footer>
+  </body>
+</html>
