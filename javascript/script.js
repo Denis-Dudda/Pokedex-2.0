@@ -7,6 +7,24 @@ let aboutContainer = document.getElementById("about-container");
 let baseStatsContainer = document.getElementById("base-stats-container");
 let movesContainer = document.getElementById("moves-container");
 let ShowButton = document.getElementById('all-pokemon-button');
+let normal = "normal";
+let fire = "fire";
+let water = "water";
+let electric = "electric";
+let grass = "grass";
+let ice = "ice";
+let fighting = "fighting";
+let poison = "poison";
+let ground = "ground";
+let flying = "flying";
+let psychic = "psychic";
+let bug = "bug";
+let rock = "rock";
+let ghost = "ghost";
+let dragon = "dragon";
+let dark = "dark";
+let steel = "steel";
+let fairy = "fairy";
 async function init() {
   
   await loadFirstData();
@@ -136,12 +154,14 @@ function searchPokemon() {
   let request = document.getElementById("input-field").value;
   document.getElementById("input-field").value = "";
   for (let i = 0; i < allPokemonPlaceholder.length; i++) {
+     for (let j = 0; j < allPokemonPlaceholder[i].types.length; j++) {
+      if (allPokemonPlaceholder[i].types[j].type.name == request)
+      {filterNames.push(allPokemonPlaceholder[i]);}}
     if (allPokemonPlaceholder[i].name.startsWith(request)) {
       filterNames.push(allPokemonPlaceholder[i]);
-    }
-  }
+    }}
   changePost(request);
-  
+
 }
 
 function changePost(request) {
