@@ -131,7 +131,6 @@ function showMoves(i) {
 function searchPokemon() {
   filterNames = [];
   let request = document.getElementById("input-field").value;
-  console.log(request);
   for (let i = 0; i < allPokemonPlaceholder.length; i++) {
      for (let j = 0; j < allPokemonPlaceholder[i].types.length; j++) {
       if (allPokemonPlaceholder[i].types[j].type.name == request)
@@ -144,7 +143,6 @@ function searchPokemon() {
 
 function changePost(request) {
   allPokemon = filterNames;
-
   if (!request == "") {
     renderCards();
     ShowButton.classList.add('d-none');
