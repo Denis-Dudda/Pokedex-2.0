@@ -131,7 +131,7 @@ function showMoves(i) {
 function searchPokemon() {
   filterNames = [];
   let request = document.getElementById("input-field").value;
-  document.getElementById("input-field").value = "";
+  console.log(request);
   for (let i = 0; i < allPokemonPlaceholder.length; i++) {
      for (let j = 0; j < allPokemonPlaceholder[i].types.length; j++) {
       if (allPokemonPlaceholder[i].types[j].type.name == request)
@@ -143,14 +143,18 @@ function searchPokemon() {
 }
 
 function changePost(request) {
-  
   allPokemon = filterNames;
+
   if (!request == "") {
     renderCards();
     ShowButton.classList.add('d-none');
     document.getElementById('go-back-button').classList.remove('d-none');
     document.getElementById('search-comment').classList.add('d-none');
-  }else{alert('Please enter a name or type')}
+  }else{
+    ShowButton.classList.remove('d-none');
+    renderCards();
+    document.getElementById('search-comment').classList.remove('d-none');
+  }
 }
 
 function goBack() {
