@@ -148,7 +148,6 @@ function changePost(request) {
   if (!request == "") {
     renderCards();
     ShowButton.classList.add('d-none');
-    document.getElementById('go-back-button').classList.remove('d-none');
     document.getElementById('search-comment').classList.add('d-none');
   }else{
     ShowButton.classList.remove('d-none');
@@ -161,7 +160,6 @@ function goBack() {
   allPokemon = allPokemonPlaceholder;
   renderCards();
   ShowButton.classList.remove('d-none');
-  document.getElementById('go-back-button').classList.add('d-none');
   document.getElementById('search-comment').classList.remove('d-none'); 
 }
 
